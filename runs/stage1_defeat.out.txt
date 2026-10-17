@@ -1,0 +1,389 @@
+=====================================================
+  RESTAURANT RUSH  -  survive 18 turns
+  Win: >= 4 paid customers, revenue >= $45.00, average satisfaction >= 60
+=====================================================
+
+=============== TURN 1 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: C1 Regular [sat 100, WAITING_FOR_TABLE]
+Queue: C1 Regular [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 1 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 2 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: C1 Regular [sat 92, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 2 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 3 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: C1 Regular [sat 84, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 3 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 4 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: C2 Regular [sat 100, WAITING_FOR_TABLE]
+Queue: C1 Regular [sat 76, WAITING_FOR_TABLE], C2 Regular [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1 C2; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 4 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 5 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: C1 Regular [sat 68, WAITING_FOR_TABLE], C2 Regular [sat 92, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1 C2; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 5 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 6 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: C1 Regular [sat 60, WAITING_FOR_TABLE], C2 Regular [sat 84, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1 C2; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 6 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 7 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: C3 Regular [sat 100, WAITING_FOR_TABLE]
+Queue: C1 Regular [sat 52, WAITING_FOR_TABLE], C2 Regular [sat 76, WAITING_FOR_TABLE], C3 Regular [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1 C2 C3; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 7 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 8 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: C1 Regular [sat 44, WAITING_FOR_TABLE], C2 Regular [sat 68, WAITING_FOR_TABLE], C3 Regular [sat 92, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1 C2 C3; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 8 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 9 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: C1 Regular [sat 36, WAITING_FOR_TABLE], C2 Regular [sat 60, WAITING_FOR_TABLE], C3 Regular [sat 84, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1 C2 C3; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 9 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 10 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: C4 Regular [sat 100, WAITING_FOR_TABLE]
+Queue: C1 Regular [sat 28, WAITING_FOR_TABLE], C2 Regular [sat 52, WAITING_FOR_TABLE], C3 Regular [sat 76, WAITING_FOR_TABLE], C4 Regular [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1 C2 C3 C4; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 10 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 11 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: C1 Regular [sat 20, WAITING_FOR_TABLE], C2 Regular [sat 44, WAITING_FOR_TABLE], C3 Regular [sat 68, WAITING_FOR_TABLE], C4 Regular [sat 92, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1 C2 C3 C4; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 11 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 12 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: C1 Regular [sat 12, WAITING_FOR_TABLE], C2 Regular [sat 36, WAITING_FOR_TABLE], C3 Regular [sat 60, WAITING_FOR_TABLE], C4 Regular [sat 84, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1 C2 C3 C4; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 12 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 13 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: C5 Regular [sat 100, WAITING_FOR_TABLE]
+Queue: C1 Regular [sat 4, WAITING_FOR_TABLE], C2 Regular [sat 28, WAITING_FOR_TABLE], C3 Regular [sat 52, WAITING_FOR_TABLE], C4 Regular [sat 76, WAITING_FOR_TABLE], C5 Regular [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1 C2 C3 C4 C5; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 13 --
+  > C1 (Regular) ran out of patience and LEFT. Order cancelled, table freed.
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 1 | Avg satisfaction (paid) n/a
+
+=============== TURN 14 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 1 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: C2 Regular [sat 20, WAITING_FOR_TABLE], C3 Regular [sat 44, WAITING_FOR_TABLE], C4 Regular [sat 68, WAITING_FOR_TABLE], C5 Regular [sat 92, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C2 C3 C4 C5; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 14 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 1 | Avg satisfaction (paid) n/a
+
+=============== TURN 15 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 1 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: C2 Regular [sat 12, WAITING_FOR_TABLE], C3 Regular [sat 36, WAITING_FOR_TABLE], C4 Regular [sat 60, WAITING_FOR_TABLE], C5 Regular [sat 84, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C2 C3 C4 C5; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 15 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 1 | Avg satisfaction (paid) n/a
+
+=============== TURN 16 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 1 | Avg satisfaction (paid) n/a
+Arrival this turn: C6 Regular [sat 100, WAITING_FOR_TABLE]
+Queue: C2 Regular [sat 4, WAITING_FOR_TABLE], C3 Regular [sat 28, WAITING_FOR_TABLE], C4 Regular [sat 52, WAITING_FOR_TABLE], C5 Regular [sat 76, WAITING_FOR_TABLE], C6 Regular [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C2 C3 C4 C5 C6; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 16 --
+  > C2 (Regular) ran out of patience and LEFT. Order cancelled, table freed.
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 2 | Avg satisfaction (paid) n/a
+
+=============== TURN 17 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 2 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: C3 Regular [sat 20, WAITING_FOR_TABLE], C4 Regular [sat 44, WAITING_FOR_TABLE], C5 Regular [sat 68, WAITING_FOR_TABLE], C6 Regular [sat 92, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C3 C4 C5 C6; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 17 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 2 | Avg satisfaction (paid) n/a
+
+=============== TURN 18 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 2 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: C3 Regular [sat 12, WAITING_FOR_TABLE], C4 Regular [sat 36, WAITING_FOR_TABLE], C5 Regular [sat 60, WAITING_FOR_TABLE], C6 Regular [sat 84, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C3 C4 C5 C6; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 18 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 2 | Avg satisfaction (paid) n/a
+
+================= FINAL RESULT =================
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 2 | Avg satisfaction (paid) n/a
+Targets: paid >= 4, revenue >= $45.00, avg satisfaction >= 60
+*** DEFEAT ***

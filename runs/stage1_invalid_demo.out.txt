@@ -1,0 +1,102 @@
+=====================================================
+  RESTAURANT RUSH  -  survive 18 turns
+  Win: >= 4 paid customers, revenue >= $45.00, average satisfaction >= 60
+=====================================================
+
+=============== TURN 1 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: C1 Regular [sat 100, WAITING_FOR_TABLE]
+Queue: C1 Regular [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> seat C1; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> serve 1
+  [Not allowed] There is no order #1. Choose again.
+Waiter> order 1
+  [Not allowed] Customer C1 is not seated and waiting to order (currently WAITING_FOR_TABLE). Choose again.
+Waiter> seat 9
+  [Not allowed] There is no customer C9. Choose again.
+Waiter> dance
+  [Not allowed] Unknown Waiter command 'dance'. Try: seat, order, serve, wait. Choose again.
+Waiter> seat
+  [Not allowed] Missing number. Usage: seat <customer number>. Choose again.
+Waiter> seat 1
+  > Waiter seated C1 (Regular) at T1.
+Chef commands: cook <order#> | wait | help | quit
+Chef> cook 1
+  [Not allowed] There is no order #1. Choose again.
+Chef> cook x
+  [Not allowed] 'x' is not a number. Choose again.
+Chef> wait
+  > Chef waits.
+-- End of turn 1 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 2 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: C1 Regular [sat 92, SEATED]
+  T2: free
+Orders:
+  (none)
+Available now:
+  Waiter -> order C1; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> order 1
+  > Waiter took C1's order. C1 chose Salad (order #1, bill $9.00, 1 prep unit(s)).
+Chef commands: cook <order#> | wait | help | quit
+Chef> cook 1
+  > Chef worked on order #1 (Salad) 1/1. It is READY (can be served from next turn).
+-- End of turn 2 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 3 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: C1 Regular [sat 84, ORDERED]
+  T2: free
+Orders:
+  #1 C1 Salad  READY (1/1)  bill $9.00
+Available now:
+  Waiter -> serve #1; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> serve 1
+  > Waiter served order #1 (Salad) to C1.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 3 --
+Revenue $0.00 | Paid 0 | Served 1 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 4 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 1 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: C2 Regular [sat 100, WAITING_FOR_TABLE]
+Queue: C2 Regular [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: C1 Regular [sat 84, SERVED]
+  T2: free
+Orders:
+  #1 C1 Salad  SERVED (1/1)  bill $9.00
+Available now:
+  Waiter -> seat C2; wait
+  Chef   -> wait
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> serve 1
+  [Not allowed] Order #1 is SERVED, not READY, so it cannot be served. Choose again.
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> (input ended)
+Game ended early.

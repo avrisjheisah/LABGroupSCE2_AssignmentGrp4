@@ -1,0 +1,15 @@
+serve 1
+order 1
+seat 9
+dance
+seat
+seat 1
+cook 1
+cook x
+wait
+order 1
+cook 1
+serve 1
+wait
+serve 1
+wait
