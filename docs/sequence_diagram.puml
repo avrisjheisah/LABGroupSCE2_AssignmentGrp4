@@ -1,0 +1,103 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontSize 11
+skinparam sequenceMessageAlign left
+skinparam ParticipantPadding 12
+skinparam BoxPadding 6
+actor Manager
+participant ConsoleUI as UI
+participant GameController as GC
+participant Restaurant as R
+participant HappyHour as HH
+participant Host
+participant Waiter
+participant Chef
+participant Cashier
+participant "c3 : VIPCustomer" as C3
+participant "o3 : Order" as O3
+participant Scoreboard as SB
+
+== Turn 7 - Step 1: arrival ==
+UI -> GC : startTurn()
+GC -> R : startTurn(7)  (staff may act again)
+GC -> GC : schedule.createCustomer(7, 3)  (CustomerKind.VIP)
+GC -> C3 : new VIPCustomer(id 3, arrival #3, turn 7)
+GC -> R : admit(c3)  (c3 joins the queue, satisfaction 100)
+
+== Step 2: manager choices (a choice that changes the outcome) ==
+Manager -> UI : "happyhour"
+alt Manager starts Happy Hour (once per game)
+  UI -> GC : activateHappyHour()
+  GC -> R : anyStaffHasActed()  -> false
+  GC -> HH : activate(7)  (active turns 7 and 8)
+  GC -> R : applyHappyHourBoost()
+  R -> C3 : recoverSatisfaction(15)  (capped at 100)
+else Manager does not start it
+  note over GC, HH : c3's Pasta will cost the VIP price only: $16.20
+end
+Manager -> UI : "seat 3"
+UI -> GC : hostSeat(3)
+GC -> Host : seat(c3, restaurant)
+Host -> R : seat(c3)  (lowest free table)
+R -> C3 : seatAt(table)  (WAITING_FOR_TABLE -> SEATED)
+Manager -> UI : "order 3"
+UI -> GC : waiterTakeOrder(3)
+GC -> Waiter : takeOrder(c3, restaurant)
+Waiter -> R : takeOrderFrom(c3)
+R -> C3 : chooseItem(menu)  -> Pasta
+R -> R : priceFor(c3, Pasta)
+R -> C3 : discountedPrice(1800)  -> 1620  (VIP override: 90%)
+R -> HH : isActive(7)
+HH --> R : true
+R -> HH : applyDiscount(1620)  -> 1296  ($12.96, locked in)
+R -> O3 : new Order(3, c3, Pasta, 1296)
+R -> C3 : placeOrder(o3)  (SEATED -> ORDERED)
+Manager -> UI : "cook 3"
+UI -> GC : chefCook(3)
+GC -> Chef : cook(o3, 7)
+Chef -> O3 : advance(7)  -> PREPARING 1/2
+
+== Turn 7 end - Steps 4-5 ==
+UI -> GC : finishTurn()
+GC -> C3 : loseSatisfaction()  (VIP loses 5: 100 -> 95)
+GC -> C3 : satisfaction <= 0 ?  no, c3 stays
+
+== Turn 8 ==
+UI -> GC : startTurn()
+GC -> R : applyHappyHourBoost()  (Happy Hour still active)
+R -> C3 : recoverSatisfaction(15)  (95 -> 100)
+Manager -> UI : "cook 3"
+UI -> GC : chefCook(3)
+GC -> Chef : cook(o3, 8)
+Chef -> O3 : advance(8)  -> READY (readyTurn = 8)
+
+== Turn 9 - dish READY -> SERVED ==
+Manager -> UI : "serve 3"
+UI -> GC : waiterServe(3)
+GC -> Waiter : serve(o3, 9, scoreboard)
+Waiter -> O3 : markServed(9)  (allowed: readyTurn 8 < 9)
+Waiter -> C3 : markServed(9)  (ORDERED -> SERVED)
+Waiter -> SB : recordServed()
+
+== Turn 10 - Step 4: eating ==
+UI -> GC : finishTurn()
+GC -> C3 : hasFinishedEating(10)  -> true  (served on an earlier turn)
+GC -> C3 : markReadyToPay(10)  (SERVED -> READY_TO_PAY)
+
+== Turn 11 - Step 4: payment ==
+UI -> GC : finishTurn()
+GC -> R : nextCustomerToPay(11)  -> c3  (ready on turn 10 < 11)
+GC -> Cashier : collect(c3, scoreboard, 11)
+Cashier -> C3 : pay()
+C3 --> Cashier : reviewedSatisfaction() = 95
+Cashier -> O3 : markPaid()
+Cashier -> SB : recordPayment(1296, 95)  (table released)
+
+== Turn 18 - Step 6: result check ==
+UI -> GC : finishTurn()
+GC -> SB : evaluate(config)
+note right of SB : paid >= 4 and revenue >= $45.00\nand average satisfaction >= 60 ?
+SB --> GC : VICTORY or DEFEAT
+GC --> UI : isGameOver() = true
+UI --> Manager : print final result
+@enduml

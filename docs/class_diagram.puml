@@ -1,0 +1,220 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam defaultFontSize 11
+skinparam ClassBackgroundColor #FDFDFD
+skinparam ClassBorderColor #444444
+skinparam ArrowColor #333333
+skinparam nodesep 25
+skinparam ranksep 45
+
+hide empty members
+
+  class Main {
+    +{static} main(args: String[])
+  }
+  class ConsoleUI {
+    -in: BufferedReader
+    +run()
+    -prompt(label: String, h: Handler): boolean
+    -printTurnState()
+  }
+  class GameController {
+    -turn: int
+    -nextCustomerId: int
+    -log: List<String>
+    -result: GameResult
+    +startTurn()
+    +activateHappyHour()
+    +hostSeat(id: int)
+    +waiterSeat(id: int)
+    +waiterTakeOrder(id: int)
+    +waiterServe(orderId: int)
+    +chefCook(orderId: int)
+    +finishTurn()
+    +isGameOver(): boolean
+  }
+
+  class Restaurant {
+    -nextOrderId: int
+    -currentTurn: int
+    +startTurn(turn: int)
+    +admit(c: Customer)
+    +seat(c: Customer): Table
+    +takeOrderFrom(c: Customer): Order
+    #priceFor(c: Customer, item: MenuItem): int
+    +applyHappyHourBoost(): int
+    +customerLeaves(c: Customer)
+    +nextCustomerToPay(turn: int): Customer
+  }
+  class Table {
+    -id: int
+    +isFree(): boolean
+    +occupy(c: Customer)
+    +release()
+  }
+  abstract class Customer {
+    -id: int
+    -arrivalNumber: int
+    -satisfaction: int
+    -state: CustomerState
+    -servedTurn: int
+    -readyToPayTurn: int
+    +{abstract} getTypeName(): String
+    +{abstract} getWaitLoss(): int
+    +discountedPrice(base: int): int
+    +chooseItem(menu: Menu): MenuItem
+    +reviewedSatisfaction(): int
+    +seatAt(t: Table)
+    +placeOrder(o: Order)
+    +markServed(turn: int)
+    +pay(): int
+    +loseSatisfaction()
+    +recoverSatisfaction(n: int)
+  }
+  class RegularCustomer {
+    +getWaitLoss(): int  « 8 »
+  }
+  class VIPCustomer {
+    +getWaitLoss(): int  « 5 »
+    +discountedPrice(base: int): int  « 90% »
+  }
+  class CriticCustomer {
+    +getWaitLoss(): int  « 12 »
+    +chooseItem(menu: Menu): MenuItem  « Pasta »
+    +reviewedSatisfaction(): int  « +10 / -10 »
+  }
+  enum CustomerKind {
+    REGULAR
+    VIP
+    CRITIC
+    +{abstract} create(id, n, turn): Customer
+  }
+  enum CustomerState {
+    WAITING_FOR_TABLE
+    SEATED
+    ORDERED
+    SERVED
+    READY_TO_PAY
+    PAID
+    LEFT
+  }
+  class Order {
+    -id: int
+    -billCents: int
+    -unitsDone: int
+    -readyTurn: int
+    -status: OrderStatus
+    +advance(turn: int)
+    +markServed(turn: int)
+    +isCookable(): boolean
+  }
+  enum OrderStatus {
+    PLACED
+    PREPARING
+    READY
+    SERVED
+    PAID
+    CANCELLED
+  }
+  class Menu {
+    +getItems(): List<MenuItem>
+    +getCombos(): List<MenuItem>
+    +mostDemandingItem(): MenuItem
+  }
+  class MenuItem {
+    -name: String
+    -priceCents: int
+    -prepUnits: int
+  }
+  class ComboMeal {
+    +getFirst(): MenuItem
+    +getSecond(): MenuItem
+  }
+  abstract class Staff {
+    -name: String
+    -acted: boolean
+    +startTurn()
+    +rest()
+    #ensureCanAct()
+    #markActed()
+  }
+  class Waiter {
+    +seat(c, r): Table
+    +takeOrder(c, r): Order
+    +serve(o, turn, sb)
+  }
+  class Host {
+    +seat(c, r): Table
+  }
+  class Chef {
+    +cook(o: Order, turn: int)
+  }
+  class Cashier {
+    +collect(c, sb, turn): int
+  }
+  class HappyHour {
+    -startTurn: int
+    +activate(turn: int)
+    +isActive(turn: int): boolean
+    +applyDiscount(cents: int): int
+  }
+  class Scoreboard {
+    -revenueCents: int
+    -paidCount: int
+    -satisfactionTotal: int
+    +recordPayment(bill, sat)
+    +evaluate(cfg: GameConfig): GameResult
+  }
+  class ArrivalSchedule {
+    -arrivalTurns: List<Integer>
+    +hasArrival(turn): boolean
+    +createCustomer(turn, id): Customer
+  }
+  class GameConfig {
+    -maxTurns: int
+    -tableCount: int
+    -minRevenueCents: int
+  }
+  
+ConsoleUI --> "1" GameController : drives
+GameController *-- "1" Restaurant
+GameController --> "1" GameConfig
+GameController --> "1" ArrivalSchedule
+
+Restaurant *-- "1..*" Table : tables
+Restaurant o-- "0..*" Customer : customers / queue
+Restaurant *-- "0..*" Order : orders
+Restaurant *-- "1" Menu
+Restaurant *-- "1" Waiter
+Restaurant *-- "1" Host
+Restaurant *-- "1" Chef
+Restaurant *-- "1" Cashier
+Restaurant *-- "1" HappyHour
+Restaurant *-- "1" Scoreboard
+
+Customer <|-- RegularCustomer
+Customer <|-- VIPCustomer
+Customer <|-- CriticCustomer
+Customer --> CustomerState
+Customer "1" -- "0..1" Order : places >
+Customer "0..1" -- "0..1" Table : sits at >
+
+Order --> "1" MenuItem : item
+Order --> OrderStatus
+Menu o-- "1..*" MenuItem : items
+Menu o-- "0..*" ComboMeal : combos
+MenuItem <|-- ComboMeal
+ComboMeal --> "2" MenuItem : made of
+
+Staff <|-- Waiter
+Staff <|-- Host
+Staff <|-- Chef
+Staff <|-- Cashier
+
+ArrivalSchedule --> "6" CustomerKind
+CustomerKind ..> Customer : creates
+
+Main ..> ConsoleUI
+Scoreboard ..> GameConfig : evaluates against
+@enduml
