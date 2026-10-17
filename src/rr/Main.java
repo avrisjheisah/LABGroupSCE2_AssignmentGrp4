@@ -7,7 +7,7 @@ import rr.ui.ConsoleUI;
 
 public class Main {
     public static void main(String[] args) {
-        GameController game = new GameController(GameConfig.base(), ArrivalSchedule.base());
+        GameController game = new GameController(GameConfig.base(), ArrivalSchedule.mixed());
         new ConsoleUI(game).run();
     }
 }

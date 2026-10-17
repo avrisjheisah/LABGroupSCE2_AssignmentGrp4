@@ -21,4 +21,16 @@ public class Menu {
     }
 
     public List<MenuItem> getItems() { return Collections.unmodifiableList(items); }
+
+    /** The item with the most prep units (ties: higher price). Used by the Critic. */
+    public MenuItem mostDemandingItem() {
+        MenuItem best = items.get(0);
+        for (MenuItem m : items) {
+            if (m.getPrepUnits() > best.getPrepUnits()
+                    || (m.getPrepUnits() == best.getPrepUnits() && m.getPriceCents() > best.getPriceCents())) {
+                best = m;
+            }
+        }
+        return best;
+    }
 }

@@ -16,3 +16,15 @@ Build once with `./build.sh` (Windows: `build.bat`), then pipe a script into the
 Full transcripts are saved next to each script as `*.out.txt`.
 
 Food rule: the n-th customer to arrive orders item ((n-1) mod 3) of Salad, Burger, Pasta.
+
+## Stage 2 (tag `stage-2`) - adds VIP and Critic
+
+Schedule (still 6 arrivals, turns 1,4,7,10,13,16): Regular, **Critic**, **VIP**, Regular, Regular, Regular.
+
+| Run | Script | Expected result |
+|---|---|---|
+| Reproducible **victory** (contains a VIP and a Critic) | `runs/stage2_victory.txt` | 5 paid, revenue $67.20 (VIP Pasta billed $16.20), avg satisfaction 78.0 -> VICTORY. Critic recorded 74 (served at 64, +10 review bonus). |
+| Reproducible **defeat** | `runs/stage2_defeat.txt` | Everyone waits: Critic leaves at the end of turn 12 (12 points/turn), 0 paid -> DEFEAT |
+
+Critic rules (our design): always orders Pasta (the most prep-intensive dish); at payment the recorded
+satisfaction becomes a review: >= 60 gives +10 (max 100), < 60 gives -10 (min 0).
