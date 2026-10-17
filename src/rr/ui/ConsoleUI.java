@@ -33,7 +33,8 @@ public class ConsoleUI {
         while (!game.isGameOver()) {
             game.startTurn();
             printTurnState();
-            game.drainLog();   // the arrival is already shown in the state block above
+            printLog();   // start-of-turn events (e.g. Happy Hour continuing)
+            if (!askHost()) { System.out.println("Game ended early."); return; }
             if (!askWaiter()) { System.out.println("Game ended early."); return; }
             if (!askChef()) { System.out.println("Game ended early."); return; }
             game.finishTurn();
@@ -45,6 +46,17 @@ public class ConsoleUI {
     }
 
     // ------------------------------------------------------------ prompts
+    private boolean askHost() {
+        System.out.println("Host commands: seat <C#> | wait | happyhour | help | quit");
+        return prompt("Host", (verb, arg) -> {
+            switch (verb) {
+                case "seat": game.hostSeat(need(arg, "seat <customer number>")); break;
+                case "wait": game.hostWait(); break;
+                default: throw new InvalidActionException("Unknown Host command '" + verb + "'. Try: seat, wait, happyhour.");
+            }
+        });
+    }
+
     private boolean askWaiter() {
         System.out.println("Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit");
         return prompt("Waiter", (verb, arg) -> {
@@ -87,6 +99,15 @@ public class ConsoleUI {
             String verb = parts[0].toLowerCase();
             if (verb.equals("quit")) return false;
             if (verb.equals("help")) { printHelp(); continue; }
+            if (verb.equals("happyhour")) {
+                try {
+                    game.activateHappyHour();
+                } catch (InvalidActionException e) {
+                    System.out.println("  [Not allowed] " + e.getMessage());
+                }
+                printLog();
+                continue;
+            }
             try {
                 Integer arg = parts.length > 1 ? parseNumber(parts[1]) : null;
                 handler.handle(verb, arg);
@@ -141,9 +162,23 @@ public class ConsoleUI {
                     + Money.format(o.getBillCents()));
         }
         if (!any) System.out.println("  (none)");
+        System.out.println("Happy Hour: " + happyHourStatus());
         System.out.println("Available now:");
+        System.out.println("  Host   -> " + hostOptions());
         System.out.println("  Waiter -> " + waiterOptions());
         System.out.println("  Chef   -> " + chefOptions());
+    }
+
+    private String happyHourStatus() {
+        rr.domain.HappyHour hh = game.getRestaurant().getHappyHour();
+        if (hh.isActive(game.getTurn())) return "ACTIVE (" + hh.turnsLeft(game.getTurn()) + " turn(s) left including this one)";
+        return hh.isAvailable() ? "available (once per game: type 'happyhour' before any staff acts)" : "already used";
+    }
+
+    private String hostOptions() {
+        Restaurant r = game.getRestaurant();
+        if (!r.getQueue().isEmpty() && r.hasFreeTable()) return "seat " + idList(r.getQueue(), "C") + "; wait";
+        return "wait";
     }
 
     private String waiterOptions() {
@@ -208,7 +243,8 @@ public class ConsoleUI {
     }
 
     private void printHelp() {
-        System.out.println("  seat <C#>    Waiter: seat a queued customer at the lowest free table");
+        System.out.println("  happyhour    start Happy Hour (once per game, before any staff acts this turn)");
+        System.out.println("  seat <C#>    Host or Waiter: seat a queued customer at the lowest free table");
         System.out.println("  order <C#>   Waiter: take the order of a seated customer (they choose their dish)");
         System.out.println("  serve <#>    Waiter: serve an order that was READY at the start of the turn");
         System.out.println("  cook <#>     Chef: spend this turn's prep unit on an order");

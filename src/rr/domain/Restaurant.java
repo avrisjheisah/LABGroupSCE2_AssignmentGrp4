@@ -18,6 +18,9 @@ public class Restaurant {
     private final Waiter waiter = new Waiter();
     private final Chef chef = new Chef();
     private final Cashier cashier = new Cashier();
+    private final Host host = new Host();
+    private final HappyHour happyHour = new HappyHour();
+    private int currentTurn;
     private final Scoreboard scoreboard = new Scoreboard();
     private int nextOrderId = 1;
 
@@ -27,7 +30,9 @@ public class Restaurant {
     }
 
     /** Called at the start of every turn. */
-    public void startTurn() {
+    public void startTurn(int turn) {
+        currentTurn = turn;
+        host.startTurn();
         waiter.startTurn();
         chef.startTurn();
         cashier.startTurn();
@@ -63,8 +68,27 @@ public class Restaurant {
         return o;
     }
 
+    /** Pricing order: customer discount first (VIP 10%), then Happy Hour (20%); rounded in whole cents. */
     protected int priceFor(Customer c, MenuItem item) {
-        return c.discountedPrice(item.getPriceCents());
+        int price = c.discountedPrice(item.getPriceCents());
+        if (happyHour.isActive(currentTurn)) price = happyHour.applyDiscount(price);
+        return price;
+    }
+
+    /** Happy Hour boost: every unserved customer recovers satisfaction. Returns how many were boosted. */
+    public int applyHappyHourBoost() {
+        int count = 0;
+        for (Customer c : customers) {
+            if (c.isUnserved()) {
+                c.recoverSatisfaction(HappyHour.SATISFACTION_BOOST);
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public boolean anyStaffHasActed() {
+        return host.hasActed() || waiter.hasActed() || chef.hasActed() || cashier.hasActed();
     }
 
     /** A customer whose satisfaction hit 0 walks out; their order is cancelled and the table freed. */
@@ -131,6 +155,8 @@ public class Restaurant {
     public List<Customer> getCustomers() { return Collections.unmodifiableList(customers); }
     public List<Order> getOrders() { return Collections.unmodifiableList(orders); }
     public Menu getMenu() { return menu; }
+    public Host getHost() { return host; }
+    public HappyHour getHappyHour() { return happyHour; }
     public Waiter getWaiter() { return waiter; }
     public Chef getChef() { return chef; }
     public Cashier getCashier() { return cashier; }

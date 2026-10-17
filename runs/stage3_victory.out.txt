@@ -1,0 +1,493 @@
+=====================================================
+  RESTAURANT RUSH  -  survive 18 turns
+  Win: >= 4 paid customers, revenue >= $45.00, average satisfaction >= 60
+=====================================================
+
+=============== TURN 1 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: C1 Regular [sat 100, WAITING_FOR_TABLE]
+Queue: C1 Regular [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: free
+Orders:
+  (none)
+Happy Hour: available (once per game: type 'happyhour' before any staff acts)
+Available now:
+  Host   -> seat C1; wait
+  Waiter -> seat C1; wait
+  Chef   -> wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> seat 1
+  > Host seated C1 (Regular) at T1.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> order 1
+  > Waiter took C1's order. C1 chose Salad (order #1, bill $9.00, 1 prep unit(s)).
+Chef commands: cook <order#> | wait | help | quit
+Chef> cook 1
+  > Chef worked on order #1 (Salad) 1/1. It is READY (can be served from next turn).
+-- End of turn 1 --
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 2 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 0 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: C1 Regular [sat 92, ORDERED]
+  T2: free
+Orders:
+  #1 C1 Salad  READY (1/1)  bill $9.00
+Happy Hour: available (once per game: type 'happyhour' before any staff acts)
+Available now:
+  Host   -> wait
+  Waiter -> serve #1; wait
+  Chef   -> wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> wait
+  > Host waits.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> serve 1
+  > Waiter served order #1 (Salad) to C1.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 2 --
+Revenue $0.00 | Paid 0 | Served 1 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 3 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 1 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: C1 Regular [sat 92, SERVED]
+  T2: free
+Orders:
+  #1 C1 Salad  SERVED (1/1)  bill $9.00
+Happy Hour: available (once per game: type 'happyhour' before any staff acts)
+Available now:
+  Host   -> wait
+  Waiter -> wait
+  Chef   -> wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> wait
+  > Host waits.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 3 --
+  > C1 finished eating and is READY_TO_PAY.
+Revenue $0.00 | Paid 0 | Served 1 | Left unhappy 0 | Avg satisfaction (paid) n/a
+
+=============== TURN 4 of 18 ===============
+Revenue $0.00 | Paid 0 | Served 1 | Left unhappy 0 | Avg satisfaction (paid) n/a
+Arrival this turn: C2 Critic [sat 100, WAITING_FOR_TABLE]
+Queue: C2 Critic [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: C1 Regular [sat 92, READY_TO_PAY]
+  T2: free
+Orders:
+  #1 C1 Salad  SERVED (1/1)  bill $9.00
+Happy Hour: available (once per game: type 'happyhour' before any staff acts)
+Available now:
+  Host   -> seat C2; wait
+  Waiter -> seat C2; wait
+  Chef   -> wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> seat 2
+  > Host seated C2 (Critic) at T2.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> order 2
+  > Waiter took C2's order. C2 chose Pasta (order #2, bill $18.00, 2 prep unit(s)).
+Chef commands: cook <order#> | wait | help | quit
+Chef> cook 2
+  > Chef worked on order #2 (Pasta) 1/2.
+-- End of turn 4 --
+  > Cashier collected $9.00 from C1 (recorded satisfaction 92). Table freed.
+Revenue $9.00 | Paid 1 | Served 1 | Left unhappy 0 | Avg satisfaction (paid) 92.0
+
+=============== TURN 5 of 18 ===============
+Revenue $9.00 | Paid 1 | Served 1 | Left unhappy 0 | Avg satisfaction (paid) 92.0
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: free
+  T2: C2 Critic [sat 88, ORDERED]
+Orders:
+  #2 C2 Pasta  PREPARING (1/2)  bill $18.00
+Happy Hour: available (once per game: type 'happyhour' before any staff acts)
+Available now:
+  Host   -> wait
+  Waiter -> wait
+  Chef   -> cook #2; wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> wait
+  > Host waits.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> cook 2
+  > Chef worked on order #2 (Pasta) 2/2. It is READY (can be served from next turn).
+-- End of turn 5 --
+Revenue $9.00 | Paid 1 | Served 1 | Left unhappy 0 | Avg satisfaction (paid) 92.0
+
+=============== TURN 6 of 18 ===============
+Revenue $9.00 | Paid 1 | Served 1 | Left unhappy 0 | Avg satisfaction (paid) 92.0
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: free
+  T2: C2 Critic [sat 76, ORDERED]
+Orders:
+  #2 C2 Pasta  READY (2/2)  bill $18.00
+Happy Hour: available (once per game: type 'happyhour' before any staff acts)
+Available now:
+  Host   -> wait
+  Waiter -> serve #2; wait
+  Chef   -> wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> wait
+  > Host waits.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> serve 2
+  > Waiter served order #2 (Pasta) to C2.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 6 --
+Revenue $9.00 | Paid 1 | Served 2 | Left unhappy 0 | Avg satisfaction (paid) 92.0
+
+=============== TURN 7 of 18 ===============
+Revenue $9.00 | Paid 1 | Served 2 | Left unhappy 0 | Avg satisfaction (paid) 92.0
+Arrival this turn: C3 VIP [sat 100, WAITING_FOR_TABLE]
+Queue: C3 VIP [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: C2 Critic [sat 76, SERVED]
+Orders:
+  #2 C2 Pasta  SERVED (2/2)  bill $18.00
+Happy Hour: available (once per game: type 'happyhour' before any staff acts)
+Available now:
+  Host   -> seat C3; wait
+  Waiter -> seat C3; wait
+  Chef   -> wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> happyhour
+  > HAPPY HOUR started (this turn and next): orders taken cost 80% of their price; 1 unserved customer(s) recover 15 satisfaction.
+Host> seat 3
+  > Host seated C3 (VIP) at T1.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> order 3
+  > Waiter took C3's order. C3 chose Pasta (order #3, bill $12.96, 2 prep unit(s)).
+Chef commands: cook <order#> | wait | help | quit
+Chef> cook 3
+  > Chef worked on order #3 (Pasta) 1/2.
+-- End of turn 7 --
+  > C2 finished eating and is READY_TO_PAY.
+Revenue $9.00 | Paid 1 | Served 2 | Left unhappy 0 | Avg satisfaction (paid) 92.0
+
+=============== TURN 8 of 18 ===============
+Revenue $9.00 | Paid 1 | Served 2 | Left unhappy 0 | Avg satisfaction (paid) 92.0
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: C3 VIP [sat 100, ORDERED]
+  T2: C2 Critic [sat 76, READY_TO_PAY]
+Orders:
+  #2 C2 Pasta  SERVED (2/2)  bill $18.00
+  #3 C3 Pasta  PREPARING (1/2)  bill $12.96
+Happy Hour: ACTIVE (1 turn(s) left including this one)
+Available now:
+  Host   -> wait
+  Waiter -> wait
+  Chef   -> cook #3; wait
+  > Happy Hour continues: 1 unserved customer(s) recover 15 satisfaction.
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> wait
+  > Host waits.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> cook 3
+  > Chef worked on order #3 (Pasta) 2/2. It is READY (can be served from next turn).
+-- End of turn 8 --
+  > Cashier collected $18.00 from C2 (recorded satisfaction 86). Table freed.
+Revenue $27.00 | Paid 2 | Served 2 | Left unhappy 0 | Avg satisfaction (paid) 89.0
+
+=============== TURN 9 of 18 ===============
+Revenue $27.00 | Paid 2 | Served 2 | Left unhappy 0 | Avg satisfaction (paid) 89.0
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: C3 VIP [sat 95, ORDERED]
+  T2: free
+Orders:
+  #3 C3 Pasta  READY (2/2)  bill $12.96
+Happy Hour: already used
+Available now:
+  Host   -> wait
+  Waiter -> serve #3; wait
+  Chef   -> wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> wait
+  > Host waits.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> serve 3
+  > Waiter served order #3 (Pasta) to C3.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 9 --
+Revenue $27.00 | Paid 2 | Served 3 | Left unhappy 0 | Avg satisfaction (paid) 89.0
+
+=============== TURN 10 of 18 ===============
+Revenue $27.00 | Paid 2 | Served 3 | Left unhappy 0 | Avg satisfaction (paid) 89.0
+Arrival this turn: C4 Regular [sat 100, WAITING_FOR_TABLE]
+Queue: C4 Regular [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: C3 VIP [sat 95, SERVED]
+  T2: free
+Orders:
+  #3 C3 Pasta  SERVED (2/2)  bill $12.96
+Happy Hour: already used
+Available now:
+  Host   -> seat C4; wait
+  Waiter -> seat C4; wait
+  Chef   -> wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> seat 4
+  > Host seated C4 (Regular) at T2.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> order 4
+  > Waiter took C4's order. C4 chose Burger + Salad (order #4, bill $21.60, 2 prep unit(s)).
+Chef commands: cook <order#> | wait | help | quit
+Chef> cook 4
+  > Chef worked on order #4 (Burger + Salad) 1/2.
+-- End of turn 10 --
+  > C3 finished eating and is READY_TO_PAY.
+Revenue $27.00 | Paid 2 | Served 3 | Left unhappy 0 | Avg satisfaction (paid) 89.0
+
+=============== TURN 11 of 18 ===============
+Revenue $27.00 | Paid 2 | Served 3 | Left unhappy 0 | Avg satisfaction (paid) 89.0
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: C3 VIP [sat 95, READY_TO_PAY]
+  T2: C4 Regular [sat 92, ORDERED]
+Orders:
+  #3 C3 Pasta  SERVED (2/2)  bill $12.96
+  #4 C4 Burger + Salad  PREPARING (1/2)  bill $21.60
+Happy Hour: already used
+Available now:
+  Host   -> wait
+  Waiter -> wait
+  Chef   -> cook #4; wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> wait
+  > Host waits.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> cook 4
+  > Chef worked on order #4 (Burger + Salad) 2/2. It is READY (can be served from next turn).
+-- End of turn 11 --
+  > Cashier collected $12.96 from C3 (recorded satisfaction 95). Table freed.
+Revenue $39.96 | Paid 3 | Served 3 | Left unhappy 0 | Avg satisfaction (paid) 91.0
+
+=============== TURN 12 of 18 ===============
+Revenue $39.96 | Paid 3 | Served 3 | Left unhappy 0 | Avg satisfaction (paid) 91.0
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: free
+  T2: C4 Regular [sat 84, ORDERED]
+Orders:
+  #4 C4 Burger + Salad  READY (2/2)  bill $21.60
+Happy Hour: already used
+Available now:
+  Host   -> wait
+  Waiter -> serve #4; wait
+  Chef   -> wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> wait
+  > Host waits.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> serve 4
+  > Waiter served order #4 (Burger + Salad) to C4.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 12 --
+Revenue $39.96 | Paid 3 | Served 4 | Left unhappy 0 | Avg satisfaction (paid) 91.0
+
+=============== TURN 13 of 18 ===============
+Revenue $39.96 | Paid 3 | Served 4 | Left unhappy 0 | Avg satisfaction (paid) 91.0
+Arrival this turn: C5 Regular [sat 100, WAITING_FOR_TABLE]
+Queue: C5 Regular [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: free
+  T2: C4 Regular [sat 84, SERVED]
+Orders:
+  #4 C4 Burger + Salad  SERVED (2/2)  bill $21.60
+Happy Hour: already used
+Available now:
+  Host   -> seat C5; wait
+  Waiter -> seat C5; wait
+  Chef   -> wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> seat 5
+  > Host seated C5 (Regular) at T1.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> order 5
+  > Waiter took C5's order. C5 chose Burger (order #5, bill $15.00, 1 prep unit(s)).
+Chef commands: cook <order#> | wait | help | quit
+Chef> cook 5
+  > Chef worked on order #5 (Burger) 1/1. It is READY (can be served from next turn).
+-- End of turn 13 --
+  > C4 finished eating and is READY_TO_PAY.
+Revenue $39.96 | Paid 3 | Served 4 | Left unhappy 0 | Avg satisfaction (paid) 91.0
+
+=============== TURN 14 of 18 ===============
+Revenue $39.96 | Paid 3 | Served 4 | Left unhappy 0 | Avg satisfaction (paid) 91.0
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: C5 Regular [sat 92, ORDERED]
+  T2: C4 Regular [sat 84, READY_TO_PAY]
+Orders:
+  #4 C4 Burger + Salad  SERVED (2/2)  bill $21.60
+  #5 C5 Burger  READY (1/1)  bill $15.00
+Happy Hour: already used
+Available now:
+  Host   -> wait
+  Waiter -> serve #5; wait
+  Chef   -> wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> wait
+  > Host waits.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> serve 5
+  > Waiter served order #5 (Burger) to C5.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 14 --
+  > Cashier collected $21.60 from C4 (recorded satisfaction 84). Table freed.
+Revenue $61.56 | Paid 4 | Served 5 | Left unhappy 0 | Avg satisfaction (paid) 89.3
+
+=============== TURN 15 of 18 ===============
+Revenue $61.56 | Paid 4 | Served 5 | Left unhappy 0 | Avg satisfaction (paid) 89.3
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: C5 Regular [sat 92, SERVED]
+  T2: free
+Orders:
+  #5 C5 Burger  SERVED (1/1)  bill $15.00
+Happy Hour: already used
+Available now:
+  Host   -> wait
+  Waiter -> wait
+  Chef   -> wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> wait
+  > Host waits.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> wait
+  > Chef waits.
+-- End of turn 15 --
+  > C5 finished eating and is READY_TO_PAY.
+Revenue $61.56 | Paid 4 | Served 5 | Left unhappy 0 | Avg satisfaction (paid) 89.3
+
+=============== TURN 16 of 18 ===============
+Revenue $61.56 | Paid 4 | Served 5 | Left unhappy 0 | Avg satisfaction (paid) 89.3
+Arrival this turn: C6 Regular [sat 100, WAITING_FOR_TABLE]
+Queue: C6 Regular [sat 100, WAITING_FOR_TABLE]
+Tables:
+  T1: C5 Regular [sat 92, READY_TO_PAY]
+  T2: free
+Orders:
+  #5 C5 Burger  SERVED (1/1)  bill $15.00
+Happy Hour: already used
+Available now:
+  Host   -> seat C6; wait
+  Waiter -> seat C6; wait
+  Chef   -> wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> seat 6
+  > Host seated C6 (Regular) at T2.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> order 6
+  > Waiter took C6's order. C6 chose Salad + Pasta (order #6, bill $24.30, 3 prep unit(s)).
+Chef commands: cook <order#> | wait | help | quit
+Chef> cook 6
+  > Chef worked on order #6 (Salad + Pasta) 1/3.
+-- End of turn 16 --
+  > Cashier collected $15.00 from C5 (recorded satisfaction 92). Table freed.
+Revenue $76.56 | Paid 5 | Served 5 | Left unhappy 0 | Avg satisfaction (paid) 89.8
+
+=============== TURN 17 of 18 ===============
+Revenue $76.56 | Paid 5 | Served 5 | Left unhappy 0 | Avg satisfaction (paid) 89.8
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: free
+  T2: C6 Regular [sat 92, ORDERED]
+Orders:
+  #6 C6 Salad + Pasta  PREPARING (1/3)  bill $24.30
+Happy Hour: already used
+Available now:
+  Host   -> wait
+  Waiter -> wait
+  Chef   -> cook #6; wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> wait
+  > Host waits.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> cook 6
+  > Chef worked on order #6 (Salad + Pasta) 2/3.
+-- End of turn 17 --
+Revenue $76.56 | Paid 5 | Served 5 | Left unhappy 0 | Avg satisfaction (paid) 89.8
+
+=============== TURN 18 of 18 ===============
+Revenue $76.56 | Paid 5 | Served 5 | Left unhappy 0 | Avg satisfaction (paid) 89.8
+Arrival this turn: none
+Queue: (empty)
+Tables:
+  T1: free
+  T2: C6 Regular [sat 84, ORDERED]
+Orders:
+  #6 C6 Salad + Pasta  PREPARING (2/3)  bill $24.30
+Happy Hour: already used
+Available now:
+  Host   -> wait
+  Waiter -> wait
+  Chef   -> cook #6; wait
+Host commands: seat <C#> | wait | happyhour | help | quit
+Host> wait
+  > Host waits.
+Waiter commands: seat <C#> | order <C#> | serve <order#> | wait | help | quit
+Waiter> wait
+  > Waiter waits.
+Chef commands: cook <order#> | wait | help | quit
+Chef> cook 6
+  > Chef worked on order #6 (Salad + Pasta) 3/3. It is READY (can be served from next turn).
+-- End of turn 18 --
+Revenue $76.56 | Paid 5 | Served 5 | Left unhappy 0 | Avg satisfaction (paid) 89.8
+
+================= FINAL RESULT =================
+Revenue $76.56 | Paid 5 | Served 5 | Left unhappy 0 | Avg satisfaction (paid) 89.8
+Targets: paid >= 4, revenue >= $45.00, avg satisfaction >= 60
+*** VICTORY ***

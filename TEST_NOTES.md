@@ -28,3 +28,22 @@ Schedule (still 6 arrivals, turns 1,4,7,10,13,16): Regular, **Critic**, **VIP**,
 
 Critic rules (our design): always orders Pasta (the most prep-intensive dish); at payment the recorded
 satisfaction becomes a review: >= 60 gives +10 (max 100), < 60 gives -10 (min 0).
+
+## Stage 3 (tag `stage-3`, final) - adds Host, ComboMeal, Happy Hour
+
+The Host prompt now comes first each turn, so the Stage 1 and 2 scripts only work with their own tags
+(`git checkout stage-1` / `stage-2`). Their saved transcripts (`runs/stage1_*`, `runs/stage2_*`) are kept for reference.
+
+| Run | Script | Expected result |
+|---|---|---|
+| Reproducible **victory** (VIP + Critic + Combo + Happy Hour) | `runs/stage3_victory.txt` | 5 paid, revenue $76.56, avg satisfaction 89.8 -> VICTORY |
+| Reproducible **defeat** | `runs/stage3_defeat.txt` | Everyone waits: 0 paid, 2 customers leave unhappy -> DEFEAT |
+
+Things to look for in `stage3_victory.out.txt`:
+- Turn 7: `happyhour` is typed before any staff acts. The VIP's Pasta is billed **$12.96** = $18.00 x 0.9 (VIP) x 0.8 (Happy Hour).
+- Turn 8: Happy Hour is still active (1 turn left); the VIP recovers satisfaction (95 -> 100, capped).
+- Turn 10: customer C4 (4th arrival) orders the combo "Burger + Salad": ($15 + $9) x 0.9 = $21.60, 2 prep units.
+- Typing `happyhour` after a staff member has acted, or a second time, is refused with an explanation.
+
+Combo rule: even-numbered arrivals (2nd, 4th, 6th) order combo number (n/2 - 1) mod 2 from [Salad + Pasta, Burger + Salad];
+the Critic still always orders Pasta. Odd-numbered arrivals use the single-dish cycle.

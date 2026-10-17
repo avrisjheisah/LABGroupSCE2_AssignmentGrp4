@@ -35,10 +35,15 @@ public abstract class Customer {
     public int discountedPrice(int baseCents) { return baseCents; }
 
     /**
-     * Food choice rule (deterministic): the n-th customer to arrive picks the
-     * ((n-1) mod menu size)-th item, so arrivals cycle Salad, Burger, Pasta, Salad, ...
+     * Food choice rule (deterministic). Odd-numbered arrivals pick single dishes in a cycle:
+     * the n-th customer picks item ((n-1) mod 3) = Salad, Burger, Pasta, ...
+     * Even-numbered arrivals (2nd, 4th, 6th) order combo number (n/2 - 1) mod (number of combos).
+     * If the menu has no combos, everyone uses the single-dish cycle.
      */
     public MenuItem chooseItem(Menu menu) {
+        if (!menu.getCombos().isEmpty() && arrivalNumber % 2 == 0) {
+            return menu.getCombos().get((arrivalNumber / 2 - 1) % menu.getCombos().size());
+        }
         return menu.getItems().get((arrivalNumber - 1) % menu.getItems().size());
     }
 
@@ -92,6 +97,8 @@ public abstract class Customer {
     public void loseSatisfaction() {
         satisfaction = Math.max(0, satisfaction - getWaitLoss());
     }
+
+    public void recoverSatisfaction(int amount) { setSatisfaction(satisfaction + amount); }
 
     public boolean isOut() { return state == CustomerState.PAID || state == CustomerState.LEFT; }
 

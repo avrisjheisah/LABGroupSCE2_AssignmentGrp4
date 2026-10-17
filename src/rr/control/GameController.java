@@ -6,7 +6,9 @@ import java.util.List;
 import rr.domain.ArrivalSchedule;
 import rr.domain.Customer;
 import rr.domain.GameConfig;
+import rr.domain.InvalidActionException;
 import rr.domain.GameResult;
+import rr.domain.HappyHour;
 import rr.domain.Menu;
 import rr.domain.Money;
 import rr.domain.Order;
@@ -44,17 +46,42 @@ public class GameController {
     public void startTurn() {
         if (isGameOver()) throw new IllegalStateException("The game is over.");
         turn++;
-        restaurant.startTurn();
+        restaurant.startTurn(turn);
         arrivedThisTurn = null;
+        if (restaurant.getHappyHour().isActive(turn)) {
+            int n = restaurant.applyHappyHourBoost();
+            log("Happy Hour continues: " + n + " unserved customer(s) recover " + HappyHour.SATISFACTION_BOOST + " satisfaction.");
+        }
         if (schedule.hasArrival(turn)) {
             Customer c = schedule.createCustomer(turn, nextCustomerId++);
             restaurant.admit(c);
             arrivedThisTurn = c;
-            log("Arrival: C" + c.getId() + " (" + c.getTypeName() + ") joins the queue.");
         }
     }
 
     // ------------------------------------------------------------ STEP 2 + 3
+    /** Happy Hour must be started at the start of a turn, before any staff member has acted. */
+    public void activateHappyHour() {
+        if (restaurant.anyStaffHasActed()) {
+            throw new InvalidActionException("Happy Hour must be started at the start of a turn, before any staff member has acted.");
+        }
+        restaurant.getHappyHour().activate(turn);
+        int n = restaurant.applyHappyHourBoost();
+        log("HAPPY HOUR started (this turn and next): orders taken cost 80% of their price; "
+                + n + " unserved customer(s) recover " + HappyHour.SATISFACTION_BOOST + " satisfaction.");
+    }
+
+    public void hostSeat(int customerId) {
+        Customer c = restaurant.findCustomer(customerId);
+        Table t = restaurant.getHost().seat(c, restaurant);
+        log("Host seated C" + c.getId() + " (" + c.getTypeName() + ") at T" + t.getId() + ".");
+    }
+
+    public void hostWait() {
+        restaurant.getHost().rest();
+        log("Host waits.");
+    }
+
     public void waiterSeat(int customerId) {
         Customer c = restaurant.findCustomer(customerId);
         Table t = restaurant.getWaiter().seat(c, restaurant);
