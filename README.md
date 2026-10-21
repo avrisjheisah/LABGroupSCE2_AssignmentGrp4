@@ -3,7 +3,7 @@
 Turn-based restaurant management game (Java, console). 18 turns, 2 tables, Host / Waiter / Chef / Cashier,
 Regular / VIP / Critic customers, combo meals and Happy Hour.
 
-- **Group:** `[Lab group / Group number]`  **Members:** `[names + matric numbers]`
+- **Group:** `[SCE2 / Group 4]`  **Members:** `[Arshia Vijesh: U2521879K, Pachipala Aishwarya: U2523486J, Kamalanathan: U2540408F, Shah Aashka Anand: U2523153G]`
 - **GitHub repository:** `[https://github.com/<team>/restaurant-rush]`  <-- replace after you push
 - **Final version:** tag `stage-3` (also `main`). Report: `docs/SC2002_Restaurant_Rush_Report.pdf`
 

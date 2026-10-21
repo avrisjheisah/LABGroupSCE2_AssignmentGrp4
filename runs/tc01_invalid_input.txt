@@ -1,0 +1,15 @@
+seat 9
+seat abc
+seat
+dance
+SEAT C1
+serve 1
+seat 1
+order 2
+order 1
+cook 7
+cook 1
+wait
+serve 1
+wait
+quit

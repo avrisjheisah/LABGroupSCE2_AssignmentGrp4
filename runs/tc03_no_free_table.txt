@@ -1,0 +1,23 @@
+seat 1
+wait
+wait
+wait
+wait
+wait
+wait
+wait
+wait
+seat 2
+wait
+wait
+wait
+wait
+wait
+wait
+wait
+wait
+seat 3
+wait
+wait
+wait
+quit

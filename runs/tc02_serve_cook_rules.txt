@@ -1,0 +1,12 @@
+seat 1
+order 1
+wait
+wait
+serve 1
+wait
+cook 1
+wait
+serve 1
+cook 1
+wait
+quit
