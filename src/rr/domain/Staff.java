@@ -1,6 +1,5 @@
 package rr.domain;
 
-/** A staff member who can perform exactly one task per turn. */
 public abstract class Staff {
     private final String name;
     private boolean acted;
@@ -11,7 +10,6 @@ public abstract class Staff {
     public boolean hasActed() { return acted; }
     public void startTurn() { acted = false; }
 
-    /** Choosing to wait also uses up this turn's task. */
     public void rest() {
         ensureCanAct();
         markActed();

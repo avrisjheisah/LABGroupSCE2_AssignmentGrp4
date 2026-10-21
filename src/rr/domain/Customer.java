@@ -1,15 +1,11 @@
 package rr.domain;
 
-/**
- * A customer. The points that differ between kinds of customer (satisfaction loss per turn,
- * discount, review) are hooks that subclasses override, so the rest of the game never
- * needs to ask "what kind of customer is this?".
- */
+
 public abstract class Customer {
     public static final int MAX_SATISFACTION = 100;
 
     private final int id;
-    private final int arrivalNumber;   // 1 = first customer to arrive, 2 = second, ...
+    private final int arrivalNumber;  
     private final int arrivalTurn;
     private int satisfaction = MAX_SATISFACTION;
     private CustomerState state = CustomerState.WAITING_FOR_TABLE;
@@ -24,22 +20,14 @@ public abstract class Customer {
         this.arrivalTurn = arrivalTurn;
     }
 
-    // ---- behaviour that varies by customer kind ----
 
     public abstract String getTypeName();
 
-    /** Satisfaction lost at the end of each turn while not yet served. */
     public abstract int getWaitLoss();
 
-    /** Price this customer pays for an item whose list price is baseCents. */
     public int discountedPrice(int baseCents) { return baseCents; }
 
-    /**
-     * Food choice rule (deterministic). Odd-numbered arrivals pick single dishes in a cycle:
-     * the n-th customer picks item ((n-1) mod 3) = Salad, Burger, Pasta, ...
-     * Even-numbered arrivals (2nd, 4th, 6th) order combo number (n/2 - 1) mod (number of combos).
-     * If the menu has no combos, everyone uses the single-dish cycle.
-     */
+
     public MenuItem chooseItem(Menu menu) {
         if (!menu.getCombos().isEmpty() && arrivalNumber % 2 == 0) {
             return menu.getCombos().get((arrivalNumber / 2 - 1) % menu.getCombos().size());
@@ -47,10 +35,8 @@ public abstract class Customer {
         return menu.getItems().get((arrivalNumber - 1) % menu.getItems().size());
     }
 
-    /** The satisfaction value that is recorded when the customer pays. */
     public int reviewedSatisfaction() { return satisfaction; }
 
-    // ---- state transitions (each one checks its own precondition) ----
 
     public void seatAt(Table t) {
         require(CustomerState.WAITING_FOR_TABLE, "is not waiting in the queue");
@@ -80,7 +66,6 @@ public abstract class Customer {
         readyToPayTurn = turn;
     }
 
-    /** Completes payment and returns the satisfaction value to record. */
     public int pay() {
         require(CustomerState.READY_TO_PAY, "is not ready to pay");
         state = CustomerState.PAID;
@@ -108,7 +93,6 @@ public abstract class Customer {
         }
     }
 
-    // ---- getters ----
     public int getId() { return id; }
     public int getArrivalNumber() { return arrivalNumber; }
     public int getArrivalTurn() { return arrivalTurn; }

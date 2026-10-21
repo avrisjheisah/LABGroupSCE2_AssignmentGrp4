@@ -1,6 +1,5 @@
 package rr.domain;
 
-/** Two menu items sold together at 90% of their combined price; prep units are added together. */
 public class ComboMeal extends MenuItem {
     private final MenuItem first;
     private final MenuItem second;

@@ -1,6 +1,5 @@
 package rr.domain;
 
-/** Factory for the kinds of customer. Each constant knows how to build its own customer. */
 public enum CustomerKind {
     REGULAR {
         @Override public Customer create(int id, int arrivalNumber, int turn) {

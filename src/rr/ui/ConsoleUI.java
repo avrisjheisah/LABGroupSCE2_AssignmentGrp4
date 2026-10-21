@@ -15,9 +15,7 @@ import rr.domain.Restaurant;
 import rr.domain.Scoreboard;
 import rr.domain.Table;
 
-/** Command-line boundary: prints state, reads commands, shows rule errors. Contains no game rules. */
 public class ConsoleUI {
-    /** Handles one command line for one staff member. Throws InvalidActionException if not allowed. */
     private interface Handler {
         void handle(String verb, Integer arg);
     }
@@ -33,7 +31,7 @@ public class ConsoleUI {
         while (!game.isGameOver()) {
             game.startTurn();
             printTurnState();
-            printLog();   // start-of-turn events (e.g. Happy Hour continuing)
+            printLog();
             if (!askHost()) { System.out.println("Game ended early."); return; }
             if (!askWaiter()) { System.out.println("Game ended early."); return; }
             if (!askChef()) { System.out.println("Game ended early."); return; }
@@ -45,7 +43,6 @@ public class ConsoleUI {
         printResult();
     }
 
-    // ------------------------------------------------------------ prompts
     private boolean askHost() {
         System.out.println("Host commands: seat <C#> | wait | happyhour | help | quit");
         return prompt("Host", (verb, arg) -> {
@@ -81,7 +78,6 @@ public class ConsoleUI {
         });
     }
 
-    /** Repeats until a valid command succeeds. Returns false if the player quits or input ends. */
     private boolean prompt(String label, Handler handler) {
         while (true) {
             System.out.print(label + "> ");
@@ -130,7 +126,6 @@ public class ConsoleUI {
         return arg;
     }
 
-    // ------------------------------------------------------------ output
     private void printIntro() {
         System.out.println("=====================================================");
         System.out.println("  RESTAURANT RUSH  -  survive " + game.getConfig().getMaxTurns() + " turns");

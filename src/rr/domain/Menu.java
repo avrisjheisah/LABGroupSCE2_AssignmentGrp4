@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/** The restaurant menu: an ordered list of items. */
 public class Menu {
     private final List<MenuItem> items = new ArrayList<>();
     private final List<MenuItem> combos = new ArrayList<>();
@@ -20,8 +19,8 @@ public class Menu {
         list.add(new MenuItem("Burger", 1500, 1));
         list.add(new MenuItem("Pasta", 1800, 2));
         List<MenuItem> combos = new ArrayList<>();
-        combos.add(new ComboMeal(list.get(0), list.get(2)));   // Salad + Pasta
-        combos.add(new ComboMeal(list.get(1), list.get(0)));   // Burger + Salad
+        combos.add(new ComboMeal(list.get(0), list.get(2))); 
+        combos.add(new ComboMeal(list.get(1), list.get(0)));  
         return new Menu(list, combos);
     }
 
@@ -29,7 +28,6 @@ public class Menu {
 
     public List<MenuItem> getCombos() { return Collections.unmodifiableList(combos); }
 
-    /** The item with the most prep units (ties: higher price). Used by the Critic. */
     public MenuItem mostDemandingItem() {
         MenuItem best = items.get(0);
         for (MenuItem m : items) {

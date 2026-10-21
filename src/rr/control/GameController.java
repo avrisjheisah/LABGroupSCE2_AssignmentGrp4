@@ -16,16 +16,7 @@ import rr.domain.OrderStatus;
 import rr.domain.Restaurant;
 import rr.domain.Table;
 
-/**
- * Runs the turn loop. It holds the turn counter and applies the six steps in the required order.
- * It contains no console code: the UI only calls these methods and reads the results.
- *
- * Step 1 (arrivals)            -> startTurn()
- * Step 2+3 (choices, kitchen)  -> waiterXxx() then chefXxx(): each choice is validated and applied
- *                                 immediately, Waiter always before Chef, which gives the same
- *                                 result as batching them (see report section 3.3).
- * Steps 4-6 (eat/pay, abandon, result) -> finishTurn()
- */
+
 public class GameController {
     private final GameConfig config;
     private final ArrivalSchedule schedule;
@@ -42,7 +33,6 @@ public class GameController {
         this.restaurant = new Restaurant(config, Menu.standard());
     }
 
-    // ------------------------------------------------------------ STEP 1
     public void startTurn() {
         if (isGameOver()) throw new IllegalStateException("The game is over.");
         turn++;
@@ -59,8 +49,7 @@ public class GameController {
         }
     }
 
-    // ------------------------------------------------------------ STEP 2 + 3
-    /** Happy Hour must be started at the start of a turn, before any staff member has acted. */
+
     public void activateHappyHour() {
         if (restaurant.anyStaffHasActed()) {
             throw new InvalidActionException("Happy Hour must be started at the start of a turn, before any staff member has acted.");
@@ -121,9 +110,7 @@ public class GameController {
         log("Chef waits.");
     }
 
-    // ------------------------------------------------------------ STEPS 4, 5, 6
     public void finishTurn() {
-        // Step 4a: Cashier takes the oldest customer who became READY_TO_PAY on an earlier turn.
         Customer toPay = restaurant.nextCustomerToPay(turn);
         if (toPay != null) {
             int bill = toPay.getOrder().getBillCents();
@@ -131,14 +118,12 @@ public class GameController {
             log("Cashier collected " + Money.format(bill) + " from C" + toPay.getId()
                     + " (recorded satisfaction " + recorded + "). Table freed.");
         }
-        // Step 4b: customers served on an earlier turn finish eating.
         for (Customer c : restaurant.getCustomers()) {
             if (c.hasFinishedEating(turn)) {
                 c.markReadyToPay(turn);
                 log("C" + c.getId() + " finished eating and is READY_TO_PAY.");
             }
         }
-        // Step 5: unserved customers lose satisfaction; at 0 they leave.
         for (Customer c : new ArrayList<>(restaurant.getCustomers())) {
             if (!c.isUnserved()) continue;
             c.loseSatisfaction();
@@ -147,13 +132,11 @@ public class GameController {
                 log("C" + c.getId() + " (" + c.getTypeName() + ") ran out of patience and LEFT. Order cancelled, table freed.");
             }
         }
-        // Step 6: result after the last turn.
         if (turn >= config.getMaxTurns()) {
             result = restaurant.getScoreboard().evaluate(config);
         }
     }
 
-    // ------------------------------------------------------------ queries for the UI
     public boolean isGameOver() { return result != null; }
     public GameResult getResult() { return result; }
     public int getTurn() { return turn; }

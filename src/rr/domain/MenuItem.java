@@ -1,6 +1,5 @@
 package rr.domain;
 
-/** One orderable item with a price (cents) and the number of kitchen prep units it needs. */
 public class MenuItem {
     private final String name;
     private final int priceCents;

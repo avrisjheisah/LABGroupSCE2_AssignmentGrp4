@@ -1,6 +1,5 @@
 package rr.domain;
 
-/** Keeps the numbers that decide victory or defeat. */
 public class Scoreboard {
     private int revenueCents;
     private int paidCount;

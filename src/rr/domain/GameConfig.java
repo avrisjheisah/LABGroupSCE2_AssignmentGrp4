@@ -1,6 +1,5 @@
 package rr.domain;
 
-/** The fixed parameters of one game. */
 public class GameConfig {
     private final int maxTurns;
     private final int tableCount;

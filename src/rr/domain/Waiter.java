@@ -1,6 +1,5 @@
 package rr.domain;
 
-/** The Waiter seats customers, takes orders and serves READY dishes - one task per turn. */
 public class Waiter extends Staff {
     public Waiter() { super("Waiter"); }
 

@@ -1,6 +1,5 @@
 package rr.domain;
 
-/** A single order. The bill is locked in at the moment the order is taken. */
 public class Order {
     private final int id;
     private final Customer customer;
@@ -29,7 +28,6 @@ public class Order {
         return status == OrderStatus.PLACED || status == OrderStatus.PREPARING;
     }
 
-    /** The Chef spends one prep unit on this order. */
     public void advance(int turn) {
         if (!isCookable()) {
             throw new InvalidActionException("Order #" + id + " is " + status + " - there is nothing left to cook.");
