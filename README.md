@@ -3,24 +3,23 @@
 Turn-based restaurant management game (Java, console). 18 turns, 2 tables, Host / Waiter / Chef / Cashier,
 Regular / VIP / Critic customers, combo meals and Happy Hour.
 
-- **Group:** `[SCE2 / Group 4]`  **Members:** `[Arshia Vijesh: U2521879K, Pachipala Aishwarya: U2523486J, Kamalanathan: U2540408F, Shah Aashka Anand: U2523153G]`
-- **GitHub repository:** `[https://github.com/<team>/restaurant-rush]`  <-- replace after you push
+- **Group:** SCE2 / Group 4  **Members:** Arshia Vijesh: U2521879K, Pachipala Aishwarya: U2523486J, Kamalanathan: U2540408F, Shah Aashka Anand: U2523153G
+- **GitHub repository:** https://github.com/avrisjheisah/LABGroupSCE2_AssignmentGrp4
 - **Final version:** tag `stage-3` (also `main`). Report: `docs/SC2002_Restaurant_Rush_Report.pdf`
 
 ## Build and run (needs JDK 11 or newer)
 
 ```
-./build.sh            # Windows: build.bat
-./run.sh              # Windows: run.bat        (play interactively)
-./run.sh < runs/stage3_victory.txt              (replay a saved game)
+sh build.sh           # Windows: build.bat
+sh run.sh             # Windows: run.bat        (play interactively)
+sh run.sh < runs/stage3_victory.txt             (replay a saved game)
 ```
 
 Commands: `seat <C#>`, `order <C#>`, `serve <order#>`, `cook <order#>`, `wait`, `happyhour` (Stage 3), `help`, `quit`.
 Turn order each turn: Host (Stage 3) -> Waiter -> Chef. Type `happyhour` at the first prompt of a turn, before any staff acts.
 
 Replay scripts for Stage 1 and 2 only work on their own tag: `git checkout stage-1`, rebuild, then run.
-All saved runs and expected results are listed in `TEST_NOTES.md`.
-
+All saved runs and expected results are listed in `TEST_NOTES.md` and `TESTCASES.md` (extra edge-case tests).
 ## Project layout
 
 ```
@@ -34,8 +33,8 @@ docs/            report (PDF + Word), class diagram, sequence diagram (PNG, SVG,
 ## Stage comparisons
 
 Tags: `stage-1` (commit `b8b5561`), `stage-2` (`087630e`), `stage-3` (`a2f5118`).
-Compare links (after pushing, replace the placeholder): `https://github.com/<team>/restaurant-rush/compare/stage-1...stage-2`
-and `.../compare/stage-2...stage-3`. Locally: `git diff --stat stage-1 stage-2`.
+Compare links: https://github.com/avrisjheisah/LABGroupSCE2_AssignmentGrp4/compare/stage-1...stage-2
+and https://github.com/avrisjheisah/LABGroupSCE2_AssignmentGrp4/compare/stage-2...stage-3. Locally: `git diff --stat stage-1 stage-2`.
 
 ### Stage 1 -> Stage 2 (VIP and Critic)
 
