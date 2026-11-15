@@ -3,11 +3,12 @@
 Turn-based restaurant management game (Java, console). 18 turns, 2 tables, Host / Waiter / Chef / Cashier,
 Regular / VIP / Critic customers, combo meals and Happy Hour.
 
-- **Group:** SCE2 / Group 4  **Members:** Arshia Vijesh: U2521879K, Pachipala Aishwarya: U2523486J, Kamalanathan: U2540408F, Shah Aashka Anand: U2523153G
+- **Group:** SCE2 / Group 4
+- **Members:** Arshia Vijesh: U2521879K, Pachipala Aishwarya: U2523486J, Varsha Kamalanathan: U2540408F, Shah Aashka Anand: U2523153G
 - **GitHub repository:** https://github.com/avrisjheisah/LABGroupSCE2_AssignmentGrp4
 - **Final version:** tag `stage-3` (also `main`). Report: `docs/SC2002_Restaurant_Rush_Report.pdf`
 
-## Build and run (needs JDK 11 or newer)
+## Build and run
 
 ```
 sh build.sh           # Windows: build.bat
@@ -63,7 +64,7 @@ and https://github.com/avrisjheisah/LABGroupSCE2_AssignmentGrp4/compare/stage-2.
 | Changed | `ui/ConsoleUI.java` | Host prompt, `happyhour` command, Happy Hour status. |
 | Deleted | none | |
 
-## Video (about 15 minutes) - timestamps
+## Video timestamps
 
 Fill in the real times after recording (see `VIDEO_SCRIPT.md` for what to show and say).
 

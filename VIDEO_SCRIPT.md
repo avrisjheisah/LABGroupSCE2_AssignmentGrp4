@@ -1,4 +1,4 @@
-# Video script (target 14-15 minutes, every member speaks)
+# Video script
 
 Setup: terminal open in the project folder, `./build.sh` already run, report PDF and both diagrams open in another window.
 Tip: to type commands live, follow the matching file in `runs/` line by line (one line per prompt; Stage 3 has 3 prompts per turn).
