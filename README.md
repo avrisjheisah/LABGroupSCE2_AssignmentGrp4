@@ -71,16 +71,16 @@ and https://github.com/avrisjheisah/LABGroupSCE2_AssignmentGrp4/compare/stage-2.
 
 ## Video timestamps
 
-Fill in the real times after recording (see `VIDEO_SCRIPT.md` for what to show and say).
+
 
 | Segment | Presenter | Timestamp |
 |---|---|---|
-| 1. Launching the game | `[name]` | `[00:00]` |
-| 2. Constrained manager choices (one task per staff, invalid choice refused) | `[name]` | `[mm:ss]` |
-| 3. One dish: READY -> SERVED -> eating -> paid | `[name]` | `[mm:ss]` |
-| 4. VIP or Critic behaviour | `[name]` | `[mm:ss]` |
-| 5. A Stage 3 feature (Host, combo or Happy Hour) | `[name]` | `[mm:ss]` |
-| 6. One victory and one defeat | `[name]` | `[mm:ss]` |
-| 7. Tag comparisons and the two diagrams | `[name]` | `[mm:ss]` |
+| 1. Launching the game | `[Aishwarya]` | `[00:52]` |
+| 2. Constrained manager choices (one task per staff, invalid choice refused) | `[Aishwarya]` | `[01:26]` |
+| 3. One dish: READY -> SERVED -> eating -> paid | `[Aashka]` | `[02:13]` |
+| 4. VIP or Critic behaviour | `[Aashka]` | `[03:50]` |
+| 5. A Stage 3 feature (Host, combo or Happy Hour) | `[Varsha]` | `[05:33]` |
+| 6. One victory and one defeat | `[Varsha]` | `[07:20]` |
+| 7. Tag comparisons and the two diagrams | `[Varsha]` | `[08:20]` |
 
-Video link (if not included in the zip): `[link]`
+
