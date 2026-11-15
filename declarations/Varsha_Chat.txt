@@ -1,0 +1,83 @@
+SHARED CLAUDE CHAT
+Source: https://claude.ai/share/c2c1fb36-07aa-44ae-8985-3115ddf89a90
+==========================================================================
+
+USER:
+in this report - each of my team members have given their reflections, however it should be in a format ive attached - as four questions
+
+[Attachment: SC2002 Restaurant Rush Report (file hidden when shared)]
+
+--------------------------------------------------------------------------
+
+CLAUDE:
+Here is Section 6 rewritten with the four questions from your template. I only reworded and fixed the truncated sentences, so the content is your teammates' own.
+
+6 Reflections
+
+Kamalanathan Varsha
+
+What did you learn?
+I learned that polymorphism is more than a textbook idea. It is what let us add new customer kinds without touching the game flow. I wrote VIPCustomer and CriticCustomer.
+
+How did you apply it?
+In Stage 2 we made the points where customers differ (getWaitLoss, discountedPrice, chooseItem, reviewedSatisfaction) overridable hooks. This is the Open/Closed Principle in practice. Stage 2 added three classes and changed only three small files, and GameController and Restaurant were untouched.
+
+What challenged you?
+The hardest part was deciding what belonged in the base Customer class and what belonged in a subclass. If the base contract was too narrow, the Critic's review rule had nowhere to fit.
+
+How did you solve it?
+We settled on a reviewedSatisfaction() hook with a guarantee that results stay within 0..100, so every subclass can still be used wherever a Customer is expected (Liskov). I learned to design the contract before writing the subclasses.
+
+
+Pachipala Aishwarya
+
+What did you learn?
+I learned how much correctness depends on the order in which things happen in a turn-based system. I implemented the turn loop in GameController.
+
+How did you apply it?
+GameController follows the six required steps. Because choices are applied immediately in the fixed order Host -> Waiter -> Chef, a dish that becomes READY this turn can never be served this turn. Order.markServed also checks readyTurn < turn as a second guard.
+
+What challenged you?
+Happy Hour timing was the trickiest part. It had to be accepted only before any staff member had acted, last for two turns, and still leave earlier prices unchanged.
+
+How did you solve it?
+We added anyStaffHasActed() and locked each bill at order time. I also learned the value of validating before consuming a task. InvalidActionException is thrown before markActed(), so an invalid choice never costs the player a turn.
+
+
+Shah Anand Aashka
+
+What did you learn?
+I learned that small data-representation choices can prevent whole classes of bugs. I implemented Money and Scoreboard.
+
+How did you apply it?
+We stored all money as integer cents, with half-up rounding only in Money.percentOf. This made the stacked VIP and Happy Hour price exact: 1800 x 0.9 x 0.8 = 1296 cents. The win rule compares total >= 60 x paid in integers, so no rounding can flip the result.
+
+What challenged you?
+Testing without a framework was difficult. We needed to know that Stage 1 behaviour still worked after Stages 2 and 3.
+
+How did you solve it?
+We saved deterministic input scripts (e.g. stage3_victory, stage3_no_happyhour) and compared each replay against hand-calculated numbers. This gave us evidence that earlier behaviour was preserved and that each manager choice changed the result as expected.
+
+
+Arshia Vijesh Thottathil
+
+What did you learn?
+I learned that a UML diagram is only valuable if it matches the code and explains a decision. I produced the class and sequence diagrams.
+
+How did you apply it?
+For the sequence diagram I chose VIP customer c3 in Stage 3. It shows an alt block for the Happy Hour choice, the locked $12.96 price, and the turn-gated steps through to the result check. We also weighed a Command-pattern design and rejected it. The Chef's valid actions depend on what the Waiter does in the same turn, so commands would have needed a "projected" state and duplicated rules.
+
+What challenged you?
+Keeping three class diagrams consistent with the code at each stage tag was hard, because the code kept changing.
+
+How did you solve it?
+I checked each diagram against the tagged commit (stage-1, stage-2, stage-3) rather than the latest main. I learned that comparing alternatives and explaining the rejection shows more understanding than drawing the chosen design alone.
+
+
+A few things to check before you submit:
+
+- Name consistency: The member table lists "Arshia Vijesh", but her reflection heading says "Arshia Vijesh Thottathil". Pick one.
+- "What did you learn?" answers: The template asks for "a specific gain in knowledge or skill". Varsha's and Aishwarya's answers end by naming what they coded. You could tighten each into one clear statement of the skill gained.
+- "How did you solve it?" answers: The template asks for "your attempts, solution and what you learned". Varsha's and Shah's cover the solution but say little about attempts that didn't work. Adding a sentence like "We first tried X, but..." would match the template better.
+
+I can also tighten any of these or produce the section as a Word doc if you'd like.
