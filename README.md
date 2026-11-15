@@ -38,7 +38,7 @@ docs/            report (PDF + Word), class diagram, sequence diagram (PNG, SVG,
 
 ## Stage comparisons
 
-Tags: `stage-1` (commit `b8b5561`), `stage-2` (`087630e`), `stage-3` (`a2f5118`).
+Tags: `stage-1` (commit `b8b5561`), `stage-2` (`087630e`), `stage-3` (`b8e9efc`).
 Compare links: https://github.com/avrisjheisah/LABGroupSCE2_AssignmentGrp4/compare/stage-1...stage-2
 and https://github.com/avrisjheisah/LABGroupSCE2_AssignmentGrp4/compare/stage-2...stage-3. Locally: `git diff --stat stage-1 stage-2`.
 
