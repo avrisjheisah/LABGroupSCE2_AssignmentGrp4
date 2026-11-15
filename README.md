@@ -25,7 +25,7 @@ Commands: `seat <C#>`, `order <C#>`, `serve <order#>`, `cook <order#>`, `wait`, 
 Turn order each turn: Host (Stage 3) -> Waiter -> Chef. Type `happyhour` at the first prompt of a turn, before any staff acts.
 
 Replay scripts for Stage 1 and 2 only work on their own tag: `git checkout stage-1`, rebuild, then run.
-All saved runs and expected results are listed in `TEST_NOTES.md` and `TESTCASES.md` (extra edge-case tests).
+
 ## Project layout
 
 ```
@@ -33,7 +33,7 @@ src/rr/domain    game rules and entities (Customer, Order, Restaurant, staff, Ha
 src/rr/control   GameController: the six-step turn loop
 src/rr/ui        ConsoleUI: input/output only
 runs/            reproducible input scripts (*.txt) and saved transcripts (*.out.txt)
-docs/            report (PDF + Word), class diagram, sequence diagram (PNG, SVG, PlantUML source)
+docs/            report (PDF), class diagram, sequence diagram 
 ```
 
 ## Stage comparisons
