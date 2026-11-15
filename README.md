@@ -83,4 +83,4 @@ and https://github.com/avrisjheisah/LABGroupSCE2_AssignmentGrp4/compare/stage-2.
 | 6. One victory and one defeat | `[Varsha]` | `[07:20]` |
 | 7. Tag comparisons and the two diagrams | `[Varsha]` | `[08:20]` |
 
-
+Video Code demonstration done by Arshia.
