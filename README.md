@@ -8,6 +8,11 @@ Regular / VIP / Critic customers, combo meals and Happy Hour.
 - **GitHub repository:** https://github.com/avrisjheisah/LABGroupSCE2_AssignmentGrp4
 - **Final version:** tag `stage-3` (also `main`). Report: `docs/SC2002_Restaurant_Rush_Report.pdf`
 
+# Requirements
+- JDK 11 or later (developed and tested with Java 26.0.1; the code also compiles with javac --release 11)
+- A terminal: bash/zsh on Linux and macOS, Command Prompt or PowerShell on Windows
+- No external libraries are needed
+
 ## Build and run
 
 ```
